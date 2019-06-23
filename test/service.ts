@@ -17,7 +17,7 @@
 import * as assert from 'assert';
 import * as extend from 'extend';
 import * as proxyquire from 'proxyquire';
-import {Request, RequestResponse} from 'request';
+import {Request, RequestResponse} from 'teeny-request';
 
 import {Interceptor} from '../src';
 import {ServiceConfig, ServiceOptions} from '../src/service';

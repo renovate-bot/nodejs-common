@@ -17,7 +17,7 @@
 import * as assert from 'assert';
 import * as extend from 'extend';
 import * as proxyquire from 'proxyquire';
-import {Request, RequestResponse} from 'teeny-request';
+import {Request} from 'teeny-request';
 
 import {Interceptor} from '../src';
 import {ServiceConfig, ServiceOptions} from '../src/service';
@@ -555,7 +555,7 @@ describe('Service', () => {
       const fakeOpts = {};
       Service.prototype.request_ = async (reqOpts: DecorateRequestOptions) => {
         assert.strictEqual(reqOpts, fakeOpts);
-        return Promise.resolve({} as RequestResponse);
+        return Promise.resolve({});
       };
       await service.request(fakeOpts);
     });
@@ -573,7 +573,7 @@ describe('Service', () => {
 
       service.request(
         fakeOpts,
-        (err: Error, body: {}, res: RequestResponse) => {
+        (err: Error, body: {}, res: {}) => {
           assert.ifError(err);
           assert.deepStrictEqual(res, response);
           assert.deepStrictEqual(body, response.body);

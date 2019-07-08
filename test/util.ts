@@ -458,8 +458,11 @@ describe('common/util', () => {
             'application/octet-stream'
           );
           // (is a writable stream:)
-          // tslint:disable-next-line no-any
-          assert.strictEqual(typeof (mp[1].body as any)._writableState, 'object');
+          assert.strictEqual(
+            // tslint:disable-next-line no-any
+            typeof (mp[1].body as any)._writableState,
+            'object'
+          );
 
           done();
         },

@@ -721,8 +721,8 @@ export class Util {
     }
 
     if (!config.stream) {
-      return retryRequest(reqOpts, options, (err: Error|null, response: r.Response, body: {}) => {
-        util.handleResp(err, response, body, callback!);
+      return retryRequest(reqOpts, options, (err, response, body) => {
+        util.handleResp(err, (response as {}) as r.Response, body, callback!);
       });
     }
     const dup = config.stream as AbortableDuplex;

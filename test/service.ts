@@ -571,15 +571,12 @@ describe('Service', () => {
         callback(null, response.body, response);
       };
 
-      service.request(
-        fakeOpts,
-        (err: Error, body: {}, res: {}) => {
-          assert.ifError(err);
-          assert.deepStrictEqual(res, response);
-          assert.deepStrictEqual(body, response.body);
-          done();
-        }
-      );
+      service.request(fakeOpts, (err: Error, body: {}, res: {}) => {
+        assert.ifError(err);
+        assert.deepStrictEqual(res, response);
+        assert.deepStrictEqual(body, response.body);
+        done();
+      });
     });
   });
 
